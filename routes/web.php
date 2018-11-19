@@ -22,3 +22,4 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('combo','ComboController');
 
 Route::resource('cliente','ClienteController');
+Route::resource('pago','PagoController');

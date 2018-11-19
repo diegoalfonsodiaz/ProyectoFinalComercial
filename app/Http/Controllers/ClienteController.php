@@ -40,6 +40,7 @@ class ClienteController extends Controller
     {
         Cliente::create($request->all());
         return redirect()->route('cliente.index');
+        
     }
 
     /**

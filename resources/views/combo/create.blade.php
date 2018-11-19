@@ -3,6 +3,8 @@
 							<section id="content" class="main">
 								<h1>Nuevo Combo</h1>
 								@if (Auth::guest())
+								<script>alert('Ingrese Credenciales')</script>
+								@else
 								<form method="POST" action="{{route('combo.store')}}">
 									{!!csrf_field()!!}
 									<p><label for="nombre">Nombre

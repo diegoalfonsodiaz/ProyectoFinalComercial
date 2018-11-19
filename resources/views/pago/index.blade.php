@@ -4,7 +4,8 @@
 	@if (Auth::guest())
 	<a>Ingrese sus credenciales para editar e ingresar nuevos datos</a>
 	@else
-	<form action="{{route('cliente.create')}}">
+	
+	<form action="{{route('pago.create')}}">
 		<button  class="btn btn-primary" class="button special fit">Crear</button>
 	</form>	  
 	@endif
@@ -18,9 +19,9 @@
 					
 
 					<th>ID</th>
-					<th>Nombre</th>
-					<th>Telefono</th>
-					<th>Correo Electronico</th>
+					<th>Cliente</th>
+					<th>Combo</th>
+					<th>NIT</th>
 					
 					<th>Acciones</th>
 				</tr>
@@ -28,20 +29,20 @@
 			<tbody>
 				@foreach($categorias as $tprod)
 				<tr>
-					<td>{{$tprod->idcliente}}</td>
-					<td>{{$tprod->nombre}}</td>
-					<td>{{$tprod->telefono}}</td>
-					<td>{{$tprod->email}}</td>
+					<td>{{$tprod->idpago}}</td>
+					<td>{{$tprod->nombrecliente}}</td>
+					<td>{{$tprod->nombrecombo}}</td>
+					<td>{{$tprod->nit}}</td>
 					
 					<td>
 
-					<a href="{{route('cliente.show',$tprod->idcliente)}}"> Mostrar </a>
+					<a href="{{route('pago.show',$tprod->idpago)}}"> Mostrar </a>
 					@if (Auth::guest())
 					<script>alert('Ingrese Credenciales')</script>
 	@else
-					<a href="{{route('cliente.edit',$tprod->idcliente)}}"> Editar </a>
+					<a href="{{route('pago.edit',$tprod->idpago)}}"> Editar </a>
 					
-						<form style="display: inline" method="POST" action="{{route('cliente.destroy', $tprod->idcliente)}}">
+						<form style="display: inline" method="POST" action="{{route('pago.destroy', $tprod->idpago)}}">
 						{!!method_field('DELETE')!!}
 						{!!csrf_field()!!}
 							<button  type="submit" class="btn btn-primary">Eliminar</button>

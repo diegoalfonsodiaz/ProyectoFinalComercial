@@ -2,6 +2,8 @@
 
 <div class="form-group">
 	@if (Auth::guest())
+	<script>alert('Ingrese Credenciales')</script>
+	@else
 	<form method="POST" action="{{route('cliente.update',$tproducto->idcliente)}}">
 		{!!method_field('PUT')!!}
 		{!!csrf_field()!!}

@@ -2,11 +2,11 @@
 
 <ul class="actions vertical">
 	@if (Auth::guest())
+	
+	@else
 	<form action="{{route('combo.create')}}">
 		<button  class="btn btn-primary" class="button special fit">Crear</button>
 	</form>
-	@else
-		<a>Ingrese sus credenciales para editar e ingresar nuevos datos</a>
 	  
 	@endif
 		
@@ -36,6 +36,7 @@
 
 					<a href="{{route('combo.show',$tprod->idcombo)}}"> Mostrar </a>
 					@if (Auth::guest())
+					@else
 					<a href="{{route('combo.edit',$tprod->idcombo)}}"> Editar </a>
 					
 						<form style="display: inline" method="POST" action="{{route('combo.destroy', $tprod->idcombo)}}">
